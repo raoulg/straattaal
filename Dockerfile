@@ -5,7 +5,8 @@ COPY backend/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY artefacts artefacts
-COPY backend/*.py .
+COPY backend/app.py .
+COPY backend/utils.py .
 COPY frontend frontend
 
 # RUN --mount=source=dist,target=/dist PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir /dist/*.whl
