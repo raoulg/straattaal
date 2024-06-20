@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 import json
 
 import torch
+import os
 from utils import sample_n
 from loguru import logger
 from tokenizers import Tokenizer
@@ -76,4 +77,4 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5001)))
