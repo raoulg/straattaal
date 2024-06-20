@@ -2,3 +2,4 @@ flask
 tokenizers
 torch
 loguru
+slanggen
