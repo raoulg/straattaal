@@ -15,13 +15,16 @@ from src.slanggen.custom_logger import logger
 
 
 def main():
-    logger.info("Logger initialized")
+    # get config
     configfile = Path("slanggen.toml").resolve()
     with configfile.open(mode="rb") as f:
         config = tomllib.load(f)
 
+    # load data
     datafile = Path(config["data"]["assets_dir"]) / config["data"]["filename"]
     logger.info(f"Loading and preprocessing data from {datafile}")
+
+    # preprocess to DataLoader
     processed_words = datatools.load_data(datafile)
     tokenizer = models.buildBPE(
         corpus=processed_words, vocab_size=config["model"]["vocab_size"]
@@ -32,8 +35,10 @@ def main():
         dataset, batch_size=config["training"]["batch_size"], shuffle=True
     )
 
+    # train model
     model, history = train(loader, tokenizer.get_vocab_size(), config)
 
+    # save artefacts
     artefacts_dir = Path(config["data"]["artefacts_dir"])
     tfile = artefacts_dir / "tokenizer.json"
     tokenizer.save(str(tfile))
@@ -42,7 +47,6 @@ def main():
     # save config to artefacts folder
     with open(artefacts_dir / "config.json", "w") as f:
         f.write(json.dumps(config, indent=4))
-
     logger.info(f"Model and tokenizer saved to {artefacts_dir}")
 
     history_file = artefacts_dir / "history.txt"
