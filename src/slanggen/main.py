@@ -3,17 +3,19 @@ import tomllib
 from pathlib import Path
 
 import torch
-from loguru import logger
+# from loguru import logger
 from torch import nn, optim
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.utils.data import DataLoader
 
 from src.slanggen import datatools, models
+from src.slanggen.custom_logger import logger
 
-logger.add("logs/main.log", rotation="5 MB")
+# logger.add("logs/main.log", rotation="5 MB")
 
 
 def main():
+    logger.info("Logger initialized")
     configfile = Path("slanggen.toml").resolve()
     with configfile.open(mode="rb") as f:
         config = tomllib.load(f)
