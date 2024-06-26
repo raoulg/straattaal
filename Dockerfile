@@ -1,4 +1,5 @@
-FROM python:3.12-slim
+# FROM python:3.12-slim
+FROM cnstark/pytorch:2.0.1-py3.10.11-ubuntu22.04
 WORKDIR /app
 
 COPY backend/requirements.txt requirements.txt
