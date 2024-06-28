@@ -10,8 +10,8 @@ COPY backend/app.py .
 COPY backend/utils.py .
 COPY frontend frontend
 
-# RUN --mount=source=dist,target=/dist PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir /dist/*.whl
+RUN --mount=source=dist,target=/dist PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir /dist/*.whl
 
-EXPOSE 5001
+EXPOSE 80
 
 CMD ["python", "app.py"]
