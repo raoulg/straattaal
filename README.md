@@ -1,3 +1,3 @@
 # straattaal
 
-Describe your project here.
+![Demo](./streetlang-demo.gif)
