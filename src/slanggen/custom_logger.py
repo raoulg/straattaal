@@ -1,9 +1,14 @@
 # logger_config.py
 import logging
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
 
 class CustomLogger:
     def __init__(self, name='main', log_file='logs/main.log', max_bytes=5*1024*1024, backup_count=5):
+        logfolder = Path(log_file).parent
+        if not logfolder.exists():
+            logfolder.mkdir(parents=True)
+
         self.logger = logging.getLogger(name)
         self.logger.setLevel(logging.DEBUG)
 
