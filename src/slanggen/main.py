@@ -52,7 +52,7 @@ def main():
     history_file = artefacts_dir / "history.txt"
     with open(history_file, "w") as f:
         f.write("\n".join(map(str, history)))
-    logger.success(f"Training history saved to {history_file}")
+    logger.info(f"Training history saved to {history_file}")
 
 
 def train(loader, vocab_size: int, config: dict):
