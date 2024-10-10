@@ -8,8 +8,8 @@ from torch import nn, optim
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from torch.utils.data import DataLoader
 
-from src.slanggen import datatools, models
-from src.slanggen.custom_logger import logger
+from slanggen import datatools, models
+from slanggen.custom_logger import logger
 
 # logger.add("logs/main.log", rotation="5 MB")
 

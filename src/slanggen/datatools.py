@@ -5,7 +5,7 @@ import requests
 import torch
 from bs4 import BeautifulSoup
 # from loguru import logger
-from src.slanggen.custom_logger import logger
+from slanggen.custom_logger import logger
 from torch.nn.utils.rnn import pad_sequence
 
 
