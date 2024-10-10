@@ -1,6 +1,6 @@
 [project]
 name = "slanggen"
-version = "0.3.0"
+version = "0.3.1"
 description = "generate slang"
 authors = [
     { name = "Raoul Grouls", email = "Raoul.Grouls@han.nl" }

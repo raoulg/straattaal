@@ -3,7 +3,7 @@ IMAGE_NAME := slang-backend
 HOST_PORT := 80
 CONTAINER_PORT := 80
 DIST_DIR := dist
-VERSION := 0.3.0
+VERSION := 0.3.1
 WHEEL_FILE := $(DIST_DIR)/slanggen-$(VERSION)-py3-none-any.whl
 
 # Colors
