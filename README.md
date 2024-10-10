@@ -1,4 +1,6 @@
 # straattaal
+built with [![Rye](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/ischaojie/7e975b710fd2265b983c051349369881/raw/5cc749c1b94777dc04069668e0c19959bbbd5b46/rye-badge.json)](https://rye-up.com/)
+
 
 ![Demo](./streetlang-demo.gif)
 
