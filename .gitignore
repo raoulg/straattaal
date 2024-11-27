@@ -12,3 +12,5 @@ logs
 # venv
 .venv
 .DS_Store
+notebooks/artefacts
+notebooks/data
