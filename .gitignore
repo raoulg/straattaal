@@ -6,6 +6,7 @@ wheels/
 *.egg-info
 .ruff_cache
 assets
+!assets/straattaal.txt
 logs
 
 # venv

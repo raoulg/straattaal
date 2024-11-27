@@ -55,3 +55,4 @@ The main components of the project are:
 - `slanggen.toml`: Configuration file for the project
 - `Dockerfile`: For containerizing the application
 
+
