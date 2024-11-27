@@ -5,7 +5,7 @@ build/
 wheels/
 *.egg-info
 .ruff_cache
-assets
+assets/*
 !assets/straattaal.txt
 logs
 
