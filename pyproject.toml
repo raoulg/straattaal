@@ -13,7 +13,7 @@ dependencies = [
     "matplotlib>=3.9.2",
 ]
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">= 3.11"
 
 [project.optional-dependencies]
 scrape = [
@@ -39,3 +39,16 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/slanggen"]
+
+[dependency-groups]
+dev = [
+    "isort>=5.13.2",
+    "jupyter>=1.1.1",
+    "pyright>=1.1.391",
+    "ruff>=0.8.6",
+]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

@@ -1,6 +1,5 @@
 # straattaal
-built with [![Rye](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/ischaojie/7e975b710fd2265b983c051349369881/raw/5cc749c1b94777dc04069668e0c19959bbbd5b46/rye-badge.json)](https://rye-up.com/)
-
+built with [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv) 
 
 ![Demo](./streetlang-demo.gif)
 
@@ -14,14 +13,15 @@ The Slang Generator project aims to create a model that can generate new slang w
 To set up the project, follow these steps:
 
 - Clone the repository
-- Install dependencies (assuming you're using rye):
+- Install dependencies (assuming you're using [uv](https://docs.astral.sh/uv/)):
 ```bash
-rye sync
+uv sync
 ```
-or, with pip:
+or, with pip (remove uv if you want it to be 10-100x slower)
 ```bash
-pip install .
+uv pip install .
 ```
+
 # 🛠 Usage
 To use the project, you can run the following commands:
 ```bash

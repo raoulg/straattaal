@@ -32,5 +32,5 @@ train:
 check-wheel: $(WHEEL_FILE)
 
 $(WHEEL_FILE):
-	echo -e "$(RED)$(WHEEL_FILE) file not found in $(DIST_DIR). Running 'rye build --clean'...$(NC)"; \
-	rye build --clean;
+	echo -e "$(RED)$(WHEEL_FILE) file not found in $(DIST_DIR). Running 'uv build --wheel'...$(NC)"; \
+	uv build --wheel;
