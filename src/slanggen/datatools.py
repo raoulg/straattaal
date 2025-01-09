@@ -4,9 +4,9 @@ from pathlib import Path
 import requests
 import torch
 from bs4 import BeautifulSoup
-# from loguru import logger
-from slanggen.custom_logger import logger
 from torch.nn.utils.rnn import pad_sequence
+
+from slanggen.custom_logger import logger
 
 
 def get_data(filename: Path) -> list[str]:
