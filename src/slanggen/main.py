@@ -32,7 +32,9 @@ def main():
     padded_sequences = datatools.preprocess(processed_words, tokenizer)
     dataset = datatools.ShiftedDataset(padded_sequences)
     loader = DataLoader(
-        dataset, batch_size=config["training"]["batch_size"], shuffle=True
+        dataset,  # type: ignore
+        batch_size=config["training"]["batch_size"],
+        shuffle=True,
     )
 
     # train model
@@ -87,14 +89,14 @@ def train(loader, vocab_size: int, config: dict):
 
             loss += loss_fn(output.view(-1, vocab_size), y.view(-1))
 
-        loss.backward()
+        loss.backward()  # type: ignore
         optimizer.step()
         scheduler.step(loss)
-        history.append(loss.item())
+        history.append(loss.item())  # type: ignore
         curr_lr = scheduler.get_last_lr()[0]
 
         if (epoch + 1) % 10 == 0:
-            logger.info(f"Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}")
+            logger.info(f"Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}")  # type: ignore
             if last_lr != curr_lr:
                 last_lr = curr_lr
                 logger.info(f"Current learning rate: {curr_lr}")

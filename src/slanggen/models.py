@@ -4,20 +4,19 @@ import string
 import tokenizers as tk
 import torch
 from torch import nn
-from torch.nn.utils.rnn import pad_sequence
 
 
 def buildBPE(corpus: list[str], vocab_size: int) -> tk.Tokenizer:
-    tokenizer = tk.Tokenizer(tk.models.BPE())
-    trainer = tk.trainers.BpeTrainer(
+    tokenizer = tk.Tokenizer(tk.models.BPE())  # type: ignore
+    trainer = tk.trainers.BpeTrainer(  # type: ignore
         vocab_size=vocab_size,
         min_frequency=1,
         special_tokens=["<pad>", "<s>", "</s>", "<unk>", "<mask>"],
     )
 
     # handle spaces better by removing the prefix space
-    tokenizer.pre_tokenizer = tk.pre_tokenizers.ByteLevel(add_prefix_space=False)
-    tokenizer.decoder = tk.decoders.ByteLevel()
+    tokenizer.pre_tokenizer = tk.pre_tokenizers.ByteLevel(add_prefix_space=False)  # type: ignore
+    tokenizer.decoder = tk.decoders.ByteLevel()  # type: ignore
 
     # train the BPE model
     tokenizer.train_from_iterator(corpus, trainer)
