@@ -30,6 +30,7 @@ help:
 	@echo "Docker Compose commands:"
 	@echo "  make up                Start services with Docker Compose"
 	@echo "  make down              Stop and remove Docker Compose services"
+	@echo "  make rebuild           Rebuild and restart Docker Compose services"
 	@echo "  make stop              Stop Docker Compose services (preserves containers)"
 	@echo "  make status            Show status of Docker Compose services"
 	@echo "  make logs              Show logs from Docker Compose services"
@@ -68,6 +69,12 @@ down:
 stop:
 	@echo "$(YELLOW)Stopping Docker Compose services...$(NC)"
 	docker compose stop
+
+rebuild:
+	@echo "$(GREEN)Rebuilding and restarting Docker Compose services...$(NC)"
+	docker compose down
+	docker compose build --no-cache
+	docker compose up -d
 
 status:
 	@echo "$(GREEN)Docker Compose services status:$(NC)"

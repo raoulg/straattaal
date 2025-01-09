@@ -1,4 +1,4 @@
-FROM raoulgrouls/torch-python-slim:py3.12-torch2.5.1-uv
+FROM raoulgrouls/torch-python-slim:py3.12-torch2.5.1-amd64-uv0.5.16
 
 WORKDIR /app
 
