@@ -1,16 +1,16 @@
-# FROM python:3.12-slim
-FROM cnstark/pytorch:2.0.1-py3.10.11-ubuntu22.04
+FROM raoulgrouls/torch-python-slim:py3.12-torch2.5.1-uv
+
 WORKDIR /app
 
 COPY backend/requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN uv pip install --no-cache --system -r requirements.txt
 
 COPY artefacts artefacts
 COPY backend/app.py .
 COPY backend/utils.py .
 COPY frontend frontend
 
-RUN --mount=source=dist,target=/dist PYTHONDONTWRITEBYTECODE=1 pip install --no-cache-dir /dist/*.whl
+RUN --mount=source=dist,target=/dist PYTHONDONTWRITEBYTECODE=1 uv pip install --system --no-cache-dir /dist/*.whl
 
 EXPOSE 80
 
